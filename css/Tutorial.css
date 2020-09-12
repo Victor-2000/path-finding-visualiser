@@ -1,0 +1,146 @@
+/*TUTORIAL CONTENT*/
+#tutorial-background {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 1000;
+  background-color: rgba(71, 71, 71, 0.63);
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  animation-name: appear;
+  animation-duration: 0.6s;
+}
+
+.tutorial-pannel {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  flex-direction: column;
+  background-color: #6651d9;
+  border-radius: max(3vw, 3vh);
+  width: 50vw;
+  height: min(80vw, 80vh);
+  animation-name: appear;
+  animation-duration: 0.6s;
+}
+
+/*HEADER PANEL*/
+.header-pannel {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.switch-pages-pannel {
+  display: flex;
+}
+
+.change-page-button {
+  position: relative;
+  padding: max(1vh, 1vw);
+  padding-top: max(1.5vh, 1.5vw);
+  color: mintcream;
+  opacity: 0.5;
+  transition: ease-in-out;
+  transition-duration: 0.3s;
+  font-size: max(2vh, 2vw);
+  height: max(2vh, 2vw);
+}
+
+.change-page-button.deactivated:hover {
+  opacity: 0.5;
+}
+
+.change-page-button:hover {
+  opacity: 1;
+}
+
+#page-count {
+  position: relative;
+  color: mintcream;
+  padding-top: max(1vh, 1vw);
+  font-size: max(2.5vh, 2.5vw);
+  height: max(2.5vh, 2.5vw);
+
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#close-button {
+  left: 1vw;
+}
+
+/*CONTENT PANEL*/
+.content-pannel {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.title {
+  padding: min(5vh, 3vw);
+  padding-bottom: min(1vh, 1vw);
+  font-size: min(7vh, 5vw);
+  text-align: center;
+  color: mintcream;
+
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.image-pannel {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.tutorial-image {
+  padding: min(2vh, 2vw);
+  width: 45%;
+}
+
+.tutorial-image#logo {
+  position: relative;
+  width: min(35vh, 25vw);
+  height: min(35vh, 25vw);
+  bottom: min(5vh, 3vw);
+  padding: min(5vh, 3vw);
+}
+
+.content-text {
+  padding: min(5vh, 3vw);
+  padding-bottom: min(1vh, 1vw);
+  padding-top: min(1vh, 1vw);
+  font-size: min(4vh, 3vw);
+  text-align: center;
+  color: mintcream;
+
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#weight-walls {
+  width: 20vw;
+}
+
+#header-image {
+  width: 90%;
+  padding: 0;
+}
+
+#header-text {
+  font-size: min(3vh, 2vw);
+  text-align: left;
+}

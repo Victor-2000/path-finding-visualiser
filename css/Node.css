@@ -1,0 +1,176 @@
+@keyframes bounce {
+  0% {
+    width: 10%;
+    height: 10%;
+    opacity: 0;
+  }
+  80% {
+    width: 120%;
+    height: 120%;
+  }
+}
+
+@keyframes shrink {
+  0% {
+    width: 100%;
+    height: 100%;
+  }
+
+  100% {
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+  }
+}
+
+@keyframes expand {
+  0% {
+    width: 0px;
+    height: 0px;
+  }
+}
+
+@keyframes flash {
+  0% {
+    background-color: rgba(7, 167, 241, 0.062);
+  }
+  50% {
+    background-color: rgb(7, 167, 241);
+  }
+}
+
+@keyframes fade {
+  0% {
+    background-color: rgb(18, 101, 156);
+  }
+  100% {
+    background-color: rgba(18, 101, 156, 0);
+  }
+}
+
+@keyframes fadePath {
+  50% {
+    background-color: rgb(221, 236, 78);
+  }
+  100% {
+    background-color: rgba(18, 101, 156, 0);
+  }
+}
+
+@keyframes pathDraw {
+  100% {
+    background-color: rgb(221, 236, 78);
+  }
+}
+
+.node {
+  width: min(1.75vw, 3.75vh);
+  height: min(1.75vw, 3.75vh);
+  transition: ease-in-out;
+  -webkit-box-shadow: inset 0px 0px 0px min(0.1vw, 0.1vh) grey;
+  -moz-box-shadow: inset 0px 0px 0px min(0.1vw, 0.1vh) grey;
+  box-shadow: inset 0px 0px 0px min(0.1vw, 0.1vh) grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  /* Makes the nodes undraggable (solved a drag bug for the erasure of walls) */
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.node-path {
+  position: absolute;
+  z-index: 5;
+  background-color: rgb(221, 236, 78);
+  width: min(2vw, 4vh);
+  height: min(2vw, 4vh);
+  animation-name: expand;
+  animation-duration: 2s;
+}
+
+.node-visited {
+  position: absolute;
+  z-index: -1;
+  background-color: rgb(18, 101, 156);
+  width: min(1.85vw, 3.95vh);
+  height: min(1.85vw, 3.95vh);
+  animation-name: flash;
+  animation-duration: 2s;
+}
+
+.node-wall {
+  position: absolute;
+  z-index: 4;
+  width: min(2vw, 4vh);
+  height: min(2vw, 4vh);
+  background-color: rgb(17, 17, 17);
+  border: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  animation-name: bounce;
+  animation-duration: 1s;
+}
+
+.node-weight {
+  position: absolute;
+  z-index: 1;
+  width: min(2vw, 4vh);
+  height: min(2vw, 4vh);
+  background-color: rgb(218, 161, 109);
+  border: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  animation-name: bounce;
+  animation-duration: 1s;
+}
+
+.node-weight {
+  position: absolute;
+  z-index: 1;
+  width: min(2vw, 4vh);
+  height: min(2vw, 4vh);
+  background-color: rgb(218, 161, 109);
+  border: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  animation-name: bounce;
+  animation-duration: 1s;
+}
+
+.node-start {
+  position: absolute;
+  z-index: 6;
+  width: min(2vw, 4vh);
+  height: min(2vw, 4vh);
+  background-color: green;
+  animation-name: expand;
+  animation-duration: 0.1s;
+}
+
+.node-intermediary {
+  position: absolute;
+  z-index: 6;
+  width: min(2vw, 4vh);
+  height: min(2vw, 4vh);
+  animation-name: expand;
+  animation-duration: 0.1s;
+  background-color: #ff9c16;
+}
+
+.node-finish {
+  position: absolute;
+  z-index: 6;
+  width: min(2vw, 4vh);
+  height: min(2vw, 4vh);
+  background-color: red;
+  animation-name: expand;
+  animation-duration: 0.1s;
+}

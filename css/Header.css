@@ -1,0 +1,48 @@
+/*HEADER CONTENT*/
+#logo {
+  width: 4vw;
+
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#functionality {
+  display: inline;
+}
+
+#title {
+  background: none;
+  margin-left: -5vw;
+  user-select: none;
+  text-align: end;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  font-size: 2vw;
+  width: 17vw;
+  height: 2vw;
+  padding: 2vw;
+  z-index: 101;
+  color: mintcream;
+}
+
+.header {
+  display: block;
+  z-index: 100;
+}
+
+.button-holder {
+  height: 6vw;
+  width: 100vw;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  position: fixed;
+  display: flex;
+  background-color: rgb(55, 55, 182);
+  justify-content: space-around;
+  align-items: center;
+}

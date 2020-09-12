@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    
+    <title>Pathfinding Visualiser</title>
+    <link rel="icon" href="static/img/logo.png">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/PathfindingVisualiser.css"></link>
+    <!-- <link rel="stylesheet" href="css/Node.css"></link>
+    <link rel="stylesheet" href="css/Dropdown.css"></link>
+    <link rel="stylesheet" href="css/DropdownUI.css"></link>
+    <link rel="stylesheet" href="css/Header.css"></link>
+    <link rel="stylesheet" href="css/Tutorial.css"></link> -->
+    <!--    Icons link (fontAwsome) -->
+     <script src = "https://kit.fontawesome.com/c939d0e917.js"></script>
+     <!-- <link rel="icon" href="img/logo-small.svg"> -->
+    <title>Path Finding Visualiser</title>
+  </head>
+  <body>
+    <div class = "display">
+      <div id = "header">
+        <div class = "button-holder">
+            <img id = "logo" src = "static/img/logo.png">
+          <div id = "title">PATHFINDING VISUALISER</div>
+          <div class = "dropdown">
+            <div class = "dropdown-header"> 
+              <div class = "dropdown-header-text">
+                <div class = "import arrow-pannel"><i class="fas fa-chevron-down"></i>
+                </div>
+                  Find Path 
+                </div>
+              </div>
+              <div class = "dropdown-content">
+                <div onclick="startDFS()">Heuristic</div>
+                <div onclick="BFS()">BFS</div>  
+                <div onclick="callSwarm()">Swarm</div>  
+                <div onclick="dijkstra()">Dijkstra</div>  
+                <div onclick="aStar()">A*</div> 
+            </div>
+          </div>
+
+          <div class = "dropdown">
+            <div class = "dropdown-header"> 
+              <div class = "dropdown-header-text">
+              <div class = "import arrow-pannel"><i class="fas fa-chevron-down"></i>
+              </div>
+                Generate Maze
+              </div>
+            </div>
+            <div class = "dropdown-content">
+              <div onclick="createMazeRecursive()">Recursive Method</div>
+              <div onclick="createMazeBacktrack()">Backtrack Method</div>
+              <div onclick="createMazeKruskal()">Kruskal's Method</div>
+              <div onclick="createMazePrim()">Prim's Method</div>  
+            </div>
+          </div>
+
+          <div class = "dropdown">
+            <div class = "dropdown-header"> 
+              <div class = "dropdown-header-text">
+                <div class = "import arrow-pannel"><i class="fas fa-chevron-down"></i>
+                </div>
+                <div id = "functionality">
+                Functionality
+                </div>
+              </div>
+            </div>
+            <div class = "dropdown-content">
+              <div onclick="restartNodes()">Restart Path</div>
+              <div onclick="clearGrid()">Clear Grid</div>
+              <!-- <div onclick="toggleIntermediary()">Toggle intermediary mode</div> -->
+              <div onclick="showTutorial()">Show tutorial</div>
+              <div class = "pallette" onclick = "activateCheckBox()">
+                <label class="switch">
+                  <input type="checkbox" onclick="toggleWeightMode()">
+                  <span class="slider round"></span>
+                </label>
+                  Weight mode
+              </div>
+              <div class = "slide-container">
+                <div id = "weight-title">
+                  Weight Level
+                </div>
+                <input type="range" min="1" max="100" value="50" class="range-slider" id="myRange"> 
+                <span id = "slider-value">
+                  50
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div id = "grid"></div>
+      <div id = "tutorial-background">
+
+        <div class = "tutorial-pannel" id = "pannel4">
+          <div class = "header-pannel">
+            <i id = "close-button" class="fas fa-times change-page-button"></i>
+            <div class = "switch-pages-pannel">
+              <i id = "left" class="fas fa-chevron-left change-page-button"></i>
+              <div id = "page-count">1</div>
+              <i id = "right" class="fas fa-chevron-right change-page-button deactivated"></i>
+            </div>
+          </div>
+          <div class = "content-pannel">
+            <div class = "title">Header</div>
+            <div class = "content-text" id = "header-text"> 
+          <ul style="padding-inline-start: 10%;"> The header has three dropdowns:  
+            <li> The first one lets you choose algorithm to choose from to find a path (NOTE: only Dijkstra and A* work with weights).
+            <li> The second one lets you choose the algorithm for creating a maze.
+            <li> The third one has tools for cleaning the grid,the path, adding weights and changing the level of the weights (NOTE: one weight level means that the weight cell is one time more harder to pass than a normal one).
+            </ul>
+          </div>          
+        </div>
+          <div class = "image-pannel" style = "flex-direction: column;">
+            <img src="static/img/findPath.png" class = "tutorial-image" id = "header-image" style="width: min(45vw,90vh);">
+            <img src="static/img/generateMaze.png" class = "tutorial-image" id = "header-image" style="width: min(45vw,90vh);">
+            <img src="static/img/functionality.png" class = "tutorial-image" id = "header-image" style="width: min(45vw,90vh);">
+          </div>
+        </div>
+
+        <div class = "tutorial-pannel" id = "pannel3">
+          <div class = "header-pannel">
+            <i id = "close-button" class="fas fa-times change-page-button"></i>
+            <div class = "switch-pages-pannel">
+              <i id = "left" class="fas fa-chevron-left change-page-button"></i>
+              <div id = "page-count">1</div>
+              <i id = "right" class="fas fa-chevron-right change-page-button"></i>
+            </div>
+          </div>
+          <div class = "content-pannel">
+            <div class = "title">Weights and walls</div>
+          <div class = "content-text">For placing walls/weights you just have to click on a empty cell on a grid. 
+            For placing a line of walls/weights you can hold and go over the cells. 
+            For removing walls/weights you should click on a cell occupied by them. <br>NOTE: For adding weights you should turn on the weight mode from the functionality tab.</div>
+          </div>
+          <div class = "image-pannel">
+            <img src="static/img/drawWall.png" class = "tutorial-image" id = "weight-walls">
+            <img src="static/img/drawWeight.png" class = "tutorial-image" id = "weight-walls">
+          </div>
+        </div>
+
+        <div class = "tutorial-pannel" id = "pannel2">
+          <div class = "header-pannel">
+            <i id = "close-button" class="fas fa-times change-page-button"></i>
+            <div class = "switch-pages-pannel">
+              <i id = "left" class="fas fa-chevron-left change-page-button"></i>
+              <div id = "page-count">1</div>
+              <i id = "right" class="fas fa-chevron-right change-page-button"></i>
+            </div>
+          </div>
+          <div class = "content-pannel">
+            <div class = "title">Moving start/end node</div>
+            <div class = "content-text">Get into moving mode by clicking the start/end node. <br>After selecting the position where you want to place the node you should click again.</div>
+          </div>
+          <div class = "image-pannel">
+            <img src="static/img/Move_Start.png" class = "tutorial-image" style="width: min(15vw,30vh);">
+            <img src="static/img/Move_Fin.png" class = "tutorial-image" style="width: min(15vw,30vh);">
+          </div>
+        </div>
+
+        <div class = "tutorial-pannel" id = "pannel1">
+          <div class = "header-pannel">
+            <i id = "close-button" class="fas fa-times change-page-button"></i>
+            <div class = "switch-pages-pannel">
+              <i id = "left" class="fas fa-chevron-left change-page-button deactivated"></i>
+              <div id = "page-count">1</div>
+              <i id = "right" class="fas fa-chevron-right change-page-button"></i>
+            </div>
+          </div>
+          <div class = "content-pannel">
+            <div class = "title">PATHFINDING VISUALISER PROJECT TUTORIAL</div>
+          </div>
+          <img src="static/img/logo.png" id = "logo" class = "tutorial-image">
+        </div>
+      </div>
+      <script src="js/main.js"></script>
+      <!-- <script src="js/tutorial.js"></script>
+      <script src="js/algos/BFS.js"></script>
+      <script src="js/algos/DFS.js"></script>
+      <script src="js/algos/swarm.js"></script>
+      <script src="js/algos/dijkstra.js"></script>
+      <script src="js/algos/AStar.js"></script>
+      <script src="js/mazeAlgos/recursive.js"></script>
+      <script src="js/mazeAlgos/recursiveBacktracker.js"></script>
+      <script src="js/mazeAlgos/kruskal.js"></script>
+      <script src="js/mazeAlgos/prim.js"></script> -->
+  </body>
+</html>
