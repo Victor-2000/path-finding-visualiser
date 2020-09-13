@@ -268,9 +268,9 @@
   width: min(1.75vw, 3.75vh);
   height: min(1.75vw, 3.75vh);
   transition: ease-in-out;
-  -webkit-box-shadow: inset 0px 0px 0px min(0.1vw, 0.1vh) grey;
-  -moz-box-shadow: inset 0px 0px 0px min(0.1vw, 0.1vh) grey;
-  box-shadow: inset 0px 0px 0px min(0.1vw, 0.1vh) grey;
+  -webkit-box-shadow: inset 0px 0px 0px min(0.3vw, 0.3vh) grey;
+  -moz-box-shadow: inset 0px 0px 0px min(0.3vw, 0.3vh) grey;
+  box-shadow: inset 0px 0px 0px min(0.3vw, 0.3vh) grey;
   display: flex;
   justify-content: center;
   align-items: center;
