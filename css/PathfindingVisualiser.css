@@ -319,7 +319,7 @@
   border: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
-  box-shadow: none;
+  box-shadow: none !important;
   animation-name: bounce;
   animation-duration: 1s;
 }
@@ -333,7 +333,7 @@
   border: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
-  box-shadow: none;
+  box-shadow: none !important;
   animation-name: bounce;
   animation-duration: 1s;
 }
@@ -347,7 +347,7 @@
   border: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
-  box-shadow: none;
+  box-shadow: none !important;
   animation-name: bounce;
   animation-duration: 1s;
 }
