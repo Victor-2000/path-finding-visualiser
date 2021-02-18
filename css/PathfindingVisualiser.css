@@ -27,6 +27,9 @@
 
 /*DROPDOWN CONTENT*/
 .dropdown {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   display: block;
   position: relative;
@@ -46,6 +49,9 @@
 .dropdown-header {
   cursor: pointer;
   background-color: rgb(55, 55, 182);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   text-align: end;
   justify-content: center;
@@ -58,12 +64,30 @@
   transition-duration: 0.4s;
 }
 
+@-webkit-keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
+}
+
 @keyframes appear {
   0% {
     opacity: 0;
   }
   100% {
     opacity: 100;
+  }
+}
+
+@-webkit-keyframes dissappear {
+  0% {
+    opacity: 100;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
@@ -76,28 +100,43 @@
   }
 }
 
+@-webkit-keyframes spin {
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
 @keyframes spin {
   100% {
-    -ms-transform: rotate(180deg);
     transform: rotate(180deg);
+  }
+}
+
+@-webkit-keyframes spin2 {
+  100% {
+    transform: rotate(0deg);
   }
 }
 
 @keyframes spin2 {
   100% {
-    -ms-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 }
 
 .dropdown-content {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   display: none;
   text-align: center;
   width: 19vw;
   font-size: 2vw;
   overflow: auto;
+  -webkit-animation-name: appear;
   animation-name: appear;
+  -webkit-animation-duration: 0.4s;
   animation-duration: 0.4s;
   transition: ease-in-out;
   position: absolute;
@@ -109,6 +148,9 @@
 }
 
 .dropdown-content div {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   display: flex;
   position: relative;
@@ -124,6 +166,7 @@
 .arrow-pannel {
   font-size: 2vw;
   margin-left: -10px;
+  -webkit-animation-duration: 0.5s;
   animation-duration: 0.5s;
   display: inline-block;
   text-indent: 0px;
@@ -167,6 +210,9 @@
 #title {
   background: none;
   margin-left: -5vw;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   text-align: end;
   justify-content: center;
@@ -199,6 +245,17 @@
 }
 
 /* NODE */
+@-webkit-keyframes bounce {
+  0% {
+    width: 10%;
+    height: 10%;
+    opacity: 0;
+  }
+  80% {
+    width: 120%;
+    height: 120%;
+  }
+}
 @keyframes bounce {
   0% {
     width: 10%;
@@ -208,6 +265,19 @@
   80% {
     width: 120%;
     height: 120%;
+  }
+}
+
+@-webkit-keyframes shrink {
+  0% {
+    width: 100%;
+    height: 100%;
+  }
+
+  100% {
+    width: 1px;
+    height: 1px;
+    opacity: 0;
   }
 }
 
@@ -224,10 +294,26 @@
   }
 }
 
+@-webkit-keyframes expand {
+  0% {
+    width: 0px;
+    height: 0px;
+  }
+}
+
 @keyframes expand {
   0% {
     width: 0px;
     height: 0px;
+  }
+}
+
+@-webkit-keyframes flash {
+  0% {
+    background-color: rgba(7, 167, 241, 0.062);
+  }
+  50% {
+    background-color: rgb(7, 167, 241);
   }
 }
 
@@ -240,9 +326,27 @@
   }
 }
 
+@-webkit-keyframes fade {
+  0% {
+    background-color: rgb(18, 101, 156);
+  }
+  100% {
+    background-color: rgba(18, 101, 156, 0);
+  }
+}
+
 @keyframes fade {
   0% {
     background-color: rgb(18, 101, 156);
+  }
+  100% {
+    background-color: rgba(18, 101, 156, 0);
+  }
+}
+
+@-webkit-keyframes fadePath {
+  50% {
+    background-color: rgb(221, 236, 78);
   }
   100% {
     background-color: rgba(18, 101, 156, 0);
@@ -258,6 +362,12 @@
   }
 }
 
+@-webkit-keyframes pathDraw {
+  100% {
+    background-color: rgb(221, 236, 78);
+  }
+}
+
 @keyframes pathDraw {
   100% {
     background-color: rgb(221, 236, 78);
@@ -268,8 +378,6 @@
   width: min(1.75vw, 3.75vh);
   height: min(1.75vw, 3.75vh);
   transition: ease-in-out;
-  -webkit-box-shadow: inset 0px 0px 0px min(0.1vw, 0.1vh) grey;
-  -moz-box-shadow: inset 0px 0px 0px min(0.1vw, 0.1vh) grey;
   box-shadow: inset 0px 0px 0px min(0.1vw, 0.1vh) grey;
   display: flex;
   justify-content: center;
@@ -285,8 +393,6 @@
 }
 
 .gecko .node {
-  -webkit-box-shadow: inset 0px 0px 0px min(0.3vw, 0.3vh) grey;
-  -moz-box-shadow: inset 0px 0px 0px min(0.3vw, 0.3vh) grey;
   box-shadow: inset 0px 0px 0px min(0.3vw, 0.3vh) grey;
 }
 
@@ -296,7 +402,9 @@
   background-color: rgb(221, 236, 78);
   width: min(2vw, 4vh);
   height: min(2vw, 4vh);
+  -webkit-animation-name: expand;
   animation-name: expand;
+  -webkit-animation-duration: 2s;
   animation-duration: 2s;
 }
 
@@ -306,7 +414,9 @@
   background-color: rgb(18, 101, 156);
   width: min(1.85vw, 3.95vh);
   height: min(1.85vw, 3.95vh);
+  -webkit-animation-name: flash;
   animation-name: flash;
+  -webkit-animation-duration: 2s;
   animation-duration: 2s;
 }
 
@@ -317,10 +427,10 @@
   height: min(2vw, 4vh);
   background-color: rgb(17, 17, 17);
   border: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none !important;
+  -webkit-animation-name: bounce;
   animation-name: bounce;
+  -webkit-animation-duration: 1s;
   animation-duration: 1s;
 }
 
@@ -331,10 +441,10 @@
   height: min(2vw, 4vh);
   background-color: rgb(218, 161, 109);
   border: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none !important;
+  -webkit-animation-name: bounce;
   animation-name: bounce;
+  -webkit-animation-duration: 1s;
   animation-duration: 1s;
 }
 
@@ -345,10 +455,10 @@
   height: min(2vw, 4vh);
   background-color: rgb(218, 161, 109);
   border: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
   box-shadow: none !important;
+  -webkit-animation-name: bounce;
   animation-name: bounce;
+  -webkit-animation-duration: 1s;
   animation-duration: 1s;
 }
 
@@ -358,7 +468,9 @@
   width: min(2vw, 4vh);
   height: min(2vw, 4vh);
   background-color: green;
+  -webkit-animation-name: expand;
   animation-name: expand;
+  -webkit-animation-duration: 0.1s;
   animation-duration: 0.1s;
 }
 
@@ -367,7 +479,9 @@
   z-index: 6;
   width: min(2vw, 4vh);
   height: min(2vw, 4vh);
+  -webkit-animation-name: expand;
   animation-name: expand;
+  -webkit-animation-duration: 0.1s;
   animation-duration: 0.1s;
   background-color: #ff9c16;
 }
@@ -378,7 +492,9 @@
   width: min(2vw, 4vh);
   height: min(2vw, 4vh);
   background-color: red;
+  -webkit-animation-name: expand;
   animation-name: expand;
+  -webkit-animation-duration: 0.1s;
   animation-duration: 0.1s;
 }
 
@@ -406,7 +522,6 @@
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
@@ -418,7 +533,6 @@
   left: max(0.5vh, 0.5vw);
   bottom: max(0.5vh, 0.5vw);
   background-color: white;
-  -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
@@ -431,8 +545,6 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(max(2vh, 2vw));
-  -ms-transform: translateX(max(2vh, 2vw));
   transform: translateX(max(2vh, 2vw));
 }
 
@@ -448,6 +560,7 @@ input:checked + .slider:before {
 /* RANGE SLIDER CONTENT */
 .range-slider {
   -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
   width: max(13vh, 13vw);
   height: max(0.5vh, 0.5vw);
@@ -455,7 +568,6 @@ input:checked + .slider:before {
   background: #d3d3d3;
   outline: none;
   opacity: 0.7;
-  -webkit-transition: 0.2s;
   transition: opacity 0.2s;
 }
 
@@ -509,7 +621,9 @@ input:checked + .slider:before {
   height: 100vh;
   left: 0;
   top: 0;
+  -webkit-animation-name: appear;
   animation-name: appear;
+  -webkit-animation-duration: 0.6s;
   animation-duration: 0.6s;
 }
 
@@ -522,7 +636,9 @@ input:checked + .slider:before {
   border-radius: max(3vw, 3vh);
   width: 50vw;
   height: min(80vw, 80vh);
+  -webkit-animation-name: appear;
   animation-name: appear;
+  -webkit-animation-duration: 0.6s;
   animation-duration: 0.6s;
 }
 

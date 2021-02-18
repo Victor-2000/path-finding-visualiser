@@ -16,6 +16,9 @@
 #title {
   background: none;
   margin-left: -5vw;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   text-align: end;
   justify-content: center;
